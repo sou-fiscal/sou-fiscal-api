@@ -10,7 +10,7 @@
 #     origins 'example.com'
 #
 #     resource '*',
-#       headers: 'Access-Control-Allow-Methods ' : "GET, POST, OPTIONS, PUT, PATCH, DELETE",
+#       headers: :any, 'Content-Type': 'application/json', 'Access-Control-Allow-Headers': 'Content-Type','Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods ' : "GET, POST, OPTIONS, PUT, PATCH, DELETE",
 
 #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
 #   end
