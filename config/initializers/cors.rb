@@ -10,7 +10,8 @@
 #     origins 'example.com'
 #
 #     resource '*',
-#       headers: :any,
+#       headers: 'Access-Control-Allow-Methods ' : "GET, POST, OPTIONS, PUT, PATCH, DELETE",
+
 #       methods: [:get, :post, :put, :patch, :delete, :options, :head]
 #   end
 # end
