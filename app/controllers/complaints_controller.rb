@@ -3,7 +3,11 @@ class ComplaintsController < ApplicationController
 
   # GET /complaints
   def index
-    @complaints = Complaint.all
+    # @complaints = Complaint.all
+    @complaints = Complaint.where(nil)
+    filtering_params(params).each do |key, value|
+      @complaints = @complaints.public_send(key, value) if value.present?
+    end
 
     render json: @complaints
   end
@@ -39,13 +43,17 @@ class ComplaintsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_complaint
-      @complaint = Complaint.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_complaint
+    @complaint = Complaint.find(params[:id])
+  end
 
-    # Only allow a trusted parameter "white list" through.
-    def complaint_params
-      params.require(:complaint).permit(:name, :initial_value, :initial_date, :delivery_forecast, :detail, :contract, :status, :latitude, :longitude, :user_id)
-    end
+  # Only allow a trusted parameter "white list" through.
+  def complaint_params
+    params.require(:complaint).permit(:name, :initial_value, :initial_date, :delivery_forecast, :detail, :contract, :status, :latitude, :longitude, :user_id)
+  end
+
+  def filtering_params(params)
+    params.slice(:user)
+  end
 end
