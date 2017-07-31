@@ -5,5 +5,7 @@ class Complaint < ApplicationRecord
   has_many :messages
   has_many :pics
 
-  scope :user_id, -> (user_id) { where user_id: user_id }
+  def self.search(search)
+    where("user_id LIKE ?", "%#{search}%")
+  end
 end

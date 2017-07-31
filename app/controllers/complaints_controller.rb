@@ -3,10 +3,12 @@ class ComplaintsController < ApplicationController
 
   # GET /complaints
   def index
-    # @complaints = Complaint.all
-    @complaints = Complaint.where(nil)
-    filtering_params(params).each do |key, value|
-      @complaints = @complaints.public_send(key, value) if value.present?
+    @complaints = Complaint.all
+
+    if params[:search]
+      @complaints = Complaint.search(params[:search]).order("created_at DESC")
+    else
+      @complaints = Complaint.all.order('created_at DESC')
     end
 
     render json: @complaints
@@ -51,9 +53,5 @@ class ComplaintsController < ApplicationController
   # Only allow a trusted parameter "white list" through.
   def complaint_params
     params.require(:complaint).permit(:name, :initial_value, :initial_date, :delivery_forecast, :detail, :contract, :status, :latitude, :longitude, :user_id)
-  end
-
-  def filtering_params(params)
-    params.slice(:user)
   end
 end
