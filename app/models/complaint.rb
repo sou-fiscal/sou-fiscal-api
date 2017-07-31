@@ -6,6 +6,6 @@ class Complaint < ApplicationRecord
   has_many :pics
 
   def self.search(search)
-    where("user_id LIKE ?", "%#{search}%")
+    where(user_id: search)
   end
 end
