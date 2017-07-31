@@ -3,4 +3,5 @@ class Complaint < ApplicationRecord
 
   has_one :address
   has_many :messages
+  has_many :pics
 end
