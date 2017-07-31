@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170730232044) do
+ActiveRecord::Schema.define(version: 20170731001031) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "city"
@@ -55,6 +55,8 @@ ActiveRecord::Schema.define(version: 20170730232044) do
     t.string "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "complaint_id"
+    t.index ["complaint_id"], name: "index_pics_on_complaint_id"
   end
 
   create_table "users", force: :cascade do |t|
