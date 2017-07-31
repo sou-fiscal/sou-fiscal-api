@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :pics
   resources :addresses
   resources :messages
   resources :complaints
