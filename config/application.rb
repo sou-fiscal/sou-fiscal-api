@@ -30,6 +30,7 @@ module SouFiscal
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
 
-    config.autoload_paths << Rails.root.join('lib')
+    # config.autoload_paths << Rails.root.join('lib')
+    config.eager_load_paths += %W( #{config.root}/lib )
   end
 end
