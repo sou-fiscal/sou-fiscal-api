@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170731021533) do
+ActiveRecord::Schema.define(version: 20170805142639) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "city"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170731021533) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "answer"
     t.index ["user_id"], name: "index_complaints_on_user_id"
   end
 

@@ -5,8 +5,8 @@ class ComplaintsController < ApplicationController
   def index
     @complaints = Complaint.all
 
-    if params[:search]
-      @complaints = Complaint.search(params[:search]).order("created_at DESC")
+    if params[:search_by_user]
+      @complaints = Complaint.search_by_user(params[:search_by_user]).order("created_at DESC")
     else
       @complaints = Complaint.all.order('created_at DESC')
     end

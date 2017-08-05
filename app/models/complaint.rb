@@ -5,7 +5,7 @@ class Complaint < ApplicationRecord
   has_many :messages
   has_many :pics
 
-  def self.search(search)
-    where(user_id: search)
+  def self.search_by_user(search_by_user)
+    where(user_id: search_by_user)
   end
 end
