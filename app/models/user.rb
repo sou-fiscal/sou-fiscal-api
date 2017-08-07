@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :complaints
   has_many :messages
 
-  :password_digest, allow_nil: true
+  :password_digest allow_nil: true
 end
