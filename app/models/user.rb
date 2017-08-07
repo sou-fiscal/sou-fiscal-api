@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :complaints
   has_many :messages
 
-  validates :password, presence: true, confirmation: true
+  validates :password_digest, presence: true, confirmation: true
 end
