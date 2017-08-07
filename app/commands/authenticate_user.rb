@@ -5,9 +5,7 @@ class AuthenticateUser
     @password = password
   end
   def call
-    if user
-      result = [JsonWebToken.encode(user_id: user.id), user.id]
-    end
+    JsonWebToken.encode(user_id: user.id) if user
   end
   private
   attr_accessor :email, :password
