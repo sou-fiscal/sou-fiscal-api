@@ -10,6 +10,8 @@ RESPOSTA: Não.
 ## Onde o projeto está hospedado?
 RESPOSTA: Nosso código esta no [Github](https://github.com/sou-fiscal/sou-fiscal-api) e nossa API esta rodando no [Heroku](https://sou-fiscal.herokuapp.com/).
 
+Obs: nosso link no Heroku foi feito para ser um endpoint para nosso app, logo, não adianta tentar acessar ele pelo navegar que não irá conseguir ver nada (é necessário autorização para ver os recursos).
+
 ## Há custos?
 RESPOSTA: No momento, não.
 
